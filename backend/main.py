@@ -8,7 +8,7 @@ from database import engine, get_db
 from models import Base, Project
 from schemas import ProjectCreate, ProjectResponse
 from gemini_service import generate_website, combine_code
-
+    
 # Create database tables
 Base.metadata.create_all(bind=engine)
 
@@ -18,7 +18,8 @@ app = FastAPI(title="AI Website Generator API")
 # Configure CORS - VERY IMPORTANT for frontend connection
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5500", "http://127.0.0.1:5500", "file://"],  # Add your frontend URL
+    # allow_origins=["http://localhost:5500", "http://127.0.0.1:5500", "file://"],  # Add your frontend URL
+    allow_origins=["*"],  # Add your frontend URL
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
