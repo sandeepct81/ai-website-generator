@@ -1,5 +1,9 @@
 // API Configuration
-const API_BASE_URL = 'http://localhost:8000';
+// const API_BASE_URL = 'http://localhost:8000';
+const API_BASE_URL =
+  window.location.hostname === "localhost"
+    ? "http://localhost:8000"
+    : "https://ai-website-generator-isxc.onrender.com";
 
 // DOM Elements
 const promptInput = document.getElementById('promptInput');
